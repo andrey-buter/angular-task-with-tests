@@ -11,5 +11,6 @@ export class DataService {
 
   changeVegetableName(vegetable: string) {
     // add data to an observable
+    this.vegetableNameSource.next(vegetable.toLowerCase());
   }
 }

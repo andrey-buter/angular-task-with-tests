@@ -21,6 +21,17 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.service.currentVegetableName.subscribe(name => {
       // complete this function which searches the vegetables using regex and adds them to searchVegetablesList
+      if (!name.length) {
+        this.searchVegetablesList = this.vegetables;
+        return;
+      }
+
+      this.searchVegetablesList = this.vegetables.filter((item) => {
+        if (0 === item.toLowerCase().indexOf(name)) {
+          return true;
+        };
+        return false;
+      })
     });
 
   }
